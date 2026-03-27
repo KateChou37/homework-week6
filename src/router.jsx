@@ -1,0 +1,38 @@
+// 統一從 react-router-dom 匯入
+import{ createHashRouter } from "react-router-dom";
+import FrontendLayout from "./layout/FrontendLayout";
+import Cart from "./views/front/Cart";
+import SingleProduct from "./views/front/SingleProduct";
+import Products from "./views/front/Products";
+import NotFound from "./views/front/NotFound";
+import Home from "./views/front/Home";
+
+export const router = createHashRouter([
+    {
+        path:'/',
+        element: <FrontendLayout />,
+        children: [{
+            index: true,
+            element:<Home />
+        },
+        {
+        path:'products',
+        element: <Products />
+        },
+        {
+        path:'product/:id',
+        element: <SingleProduct />
+        },
+        {
+        path:'cart',
+        element: <Cart />
+        },
+    ]
+    },{
+        
+        path:'*',
+        element:<NotFound />
+
+        
+    }
+])
