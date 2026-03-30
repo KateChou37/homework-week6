@@ -28,6 +28,7 @@ function SingleProduct() {
     handleView(id);
   }, [id]);
 
+  // 加入購物車功能
   const addCart = async (id, qty = 1) => {
     try {
       const data = {
